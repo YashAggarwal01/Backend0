@@ -1,7 +1,8 @@
 {
   "name": "backend2",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend for youtube",
+  
   "keywords": [
     "js",
     "backend",
@@ -9,9 +10,9 @@
   ],
   "license": "ISC",
   "author": "yash",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   }
 }
