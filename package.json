@@ -2,7 +2,6 @@
   "name": "backend2",
   "version": "1.0.0",
   "description": "backend for youtube",
-  
   "keywords": [
     "js",
     "backend",
@@ -14,5 +13,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6"
   }
 }
