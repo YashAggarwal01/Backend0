@@ -1,43 +1,14 @@
-
-
-/*there are multiple approach to connect DB this below is first approach using a iffi
-( async() => {
-    try{
-        await mongoose.connect(`${ProcessingInstruction.env.MONGODB_URI}/${DB_NAME}`)
-        app.on("error",(error)=> {
-            console.log("ERRR:",error);
-            throw error
-        })
-        app.listen(process.env.PORT,() => {
-            console.log(`App is listingn on port ${process.env.PORT}`)
-        })
-    }catch(error){
-        console.log("ERROR:",error)
-        throw error
-    }
-})()
-    */
-//require('dotenv').config({path:'./env'})
-import dotenv from "dotenv"
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants.js";
-import connectDB from "../db/index.js";
-dotenv.config({
-    path:'./.env'
-})
-
-//first method
+import "./loadEnv.js"
+import connectDB from "../db/index.js"
+import { app } from "./app.js"
 
 connectDB()
-.then(() => {
-    app.listen(process.env.PORT || 8000, () => {
-        console.log(`Server is running at port : $
-        {process.env.PORT}`);
+    .then(() => {
+        const port = process.env.PORT || 8000
+        app.listen(port, () => {
+            console.log(`Server is running at port : ${port}`)
+        })
     })
-})
-.catch((err)=> {
-    console.log("MONGO db connection Failed")
-})
-
-
-
+    .catch((err) => {
+        console.log("MONGO db connection Failed", err)
+    })
